@@ -38,19 +38,32 @@ nnoremap <cr> :noh<CR><CR>:<backspace>
 nnoremap <leader>n :set relativenumber!<cr>
 " nnoremap <leader>r :e!<cr>
 
-" Open Terminal
-nnoremap <C-q> :tabnew +term<cr>
+" Toggle Terminal
+let g:term_buf = 0
+let g:term_win = 0
+function! Term_toggle(height)
+    if win_gotoid(g:term_win)
+        hide
+    else
+        botright new
+        exec "resize " . a:height
+        try
+            exec "buffer " . g:term_buf
+        catch
+            call termopen($SHELL, {"detach": 0})
+            let g:term_buf = bufnr("")
+        endtry
+        startinsert!
+        let g:term_win = win_getid()
+    endif
+endfunction
+
+au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+
+nnoremap <C-q> :tabnew +terminal<cr>
 
 " zz to save a file
 nnoremap <silent> zz :w<CR>
-
-
-" disable recording & qq to  save and quit a file
-function! Quit()
-    wq!
-endfunction
-nnoremap q <Nop>
-nnoremap <silent> qq :call Quit()<cr>
 
 
 " --- Split panes to right and below ---
@@ -59,16 +72,19 @@ set splitbelow
 " turn terminal to normal mode with escape
 tnoremap <Esc> <C-\><C-n>
 " start terminal in insert mode
-au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 
-" open terminal on ctrl+n
-function! OpenTerminal()
-    split +term
-    resize 10
-endfunction
-nnoremap <c-b> :call OpenTerminal()<CR>
+" " open terminal on ctrl+n
+" function! OpenTerminal()
+"     split +term
+"     resize 10
+" endfunction
+nnoremap <c-b> :call Term_toggle(10)<CR>
 
 "Toggle Full Screen (NVIM QT)
 if g:is_win
     noremap <silent><F11> :call rpcnotify(0, 'Gui', 'WindowFullScreen', !g:GuiWindowFullScreen)<CR>
 endif
+
+" CocShortcuts
+nnoremap <leader>r :CocRestart<cr><cr>
+

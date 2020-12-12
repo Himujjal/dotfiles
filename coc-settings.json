@@ -2,16 +2,18 @@
   "coc.preferences.jumpCommand": "tab drop",
   // autoformat
   "coc.preferences.formatOnSaveFiletypes": [
-    //    "css",
-    //    "javascript",
-    //    "graphql",
-    //    "html",
-    //    "yaml",
-    //    "json",
+    "css",
+    "javascript",
+    "typescript",
+    "graphql",
+    "html",
+    "json",
     "python",
     "svelte",
     "java",
-    "nim"
+    "nim",
+    "c",
+    "cpp"
   ],
   "coc.preferences.hoverTarget": "float",
 
@@ -43,34 +45,29 @@
   // python config
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": true,
+  "python.linting.pylintCategorySeverity.error": "Warning",
   "python.formatting.provider": "black",
   "python.formatting.blackPath": "~/.local/bin/black",
-  // "python.linting.pylintPath": "~/.miniconda/envs/neovim/bin/pylint",
-  "python.condaPath": "~/.miniconda/bin/conda",
-  "python.sortImports.path": "~/.miniconda/envs/neovim/bin/isort",
-  "python.jediPath": "~/.miniconda/envs/neovim/lib/python3.8/site-packages",
+  "python.jediEnabled": false,
 
   // explorer
-  //  "explorer.width": 30,
+  "explorer.width": 30,
   // "explorer.icon.enableNerdfont": true,
   // "explorer.previewAction.onHover": false,
   // "explorer.icon.enableVimDevicons": false,
   // "explorer.keyMappings": {
-    //   "<cr>": ["expandable?", "expand", "open"],
-    //   "v": "open:vsplit"
+  //   "<cr>": ["expandable?", "expand", "open"],
+  //   "v": "open:vsplit"
 
-    "java.jdt.ls.vmargs": "-Dfile.encoding=UTF-8",
-    "java.format.enabled": true,
-    "java.format.onType.enabled": false,
-    "java.format.onType.fixComment.enabled": false,
-    "java.format.settings.url": "C:\\Users\\himuj\\AppData\\Local\\coc\\extensions\\node_modules\\redhat.java\\eclipse-formatter.xml",
-    "languageserver" : {
-      "nim": {
-        "command": "nimlsp",
-        "filetypes": ["nim", "nims"]
-
-      }
+  "java.jdt.ls.vmargs": "-Dfile.encoding=UTF-8",
+  "java.format.enabled": true,
+  "java.format.onType.enabled": false,
+  "java.format.onType.fixComment.enabled": false,
+  //"java.format.settings.url": "C:\\Users\\himuj\\AppData\\Local\\coc\\extensions\\node_modules\\redhat.java\\eclipse-formatter.xml",
+  "languageserver": {
+    "nim": {
+      "command": "nimlsp",
+      "filetypes": ["nim", "nims"]
     }
   }
-  // TODO b:coc_suggest_disable=1 GOYO
-  // TODO add to paths.vim g:coc_node_path
+}

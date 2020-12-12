@@ -2,9 +2,6 @@
 
 
 
-
-
-
 " Nim settings
 " au User asyncomplete_setup call asyncomplete#register_source({
 "             \ 'name': 'nim',

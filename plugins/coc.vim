@@ -1,45 +1,36 @@
-let g:coc_global_extensions = [
-      \ 'coc-snippets',
-      \ 'coc-actions',
-      \ 'coc-lists',
-      \ 'coc-pairs',
-      \ 'coc-tsserver',
-      \ 'coc-html',
-      \ 'coc-css',
-      \ 'coc-emoji',
-      \ 'coc-cssmodules',
-      \ 'coc-yaml',
-      \ 'coc-python',
-      \ 'coc-svg',
-      \ 'coc-prettier',
-      \ 'coc-vimlsp',
-      \ 'coc-xml',
-      \ 'coc-yank',
-      \ 'coc-json',
-      \ 'coc-marketplace',
-      \ ]
+ let g:coc_global_extensions = [
+                  \ 'coc-snippets',
+                  \ 'coc-yank',
+                  \ 'coc-json',
+                  \ 'coc-marketplace',
+                  \ ]
+
+" BlackListed File Types
+let g:ycm_filetype_blacklist = {
+                  \'yml': 1
+                  \}
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <C-space> coc#refresh()
 
 " Use tab for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+                  \ pumvisible() ? "\<C-n>" :
+                  \ <SID>check_back_space() ? "\<TAB>" :
+                  \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+      let col = col('.') - 1
+      return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
 if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+      inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 else
-  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+      imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
 
@@ -51,6 +42,8 @@ nmap <leader>gr <Plug>(coc-references)
 nmap <leader>rr <Plug>(coc-rename)
 nmap <leader>g[ <Plug>(coc-diagnostic-prev)
 nmap <leader>g] <Plug>(coc-diagnostic-next)
+nmap <leader>gf :CocFix<CR>
+
 nmap <silent> <leader>gp <Plug>(coc-diagnostic-prev-error)
 nmap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
 nnoremap <leader>cr :CocRestart
@@ -60,11 +53,11 @@ nnoremap <silent><M-S-f> :call CocAction('format')<CR>
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
+      if (index(['vim','help'], &filetype) >= 0)
+            execute 'h '.expand('<cword>')
+      else
+            call CocAction('doHover')
+      endif
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
@@ -72,14 +65,14 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 
 " Symbol renaming.
-" nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>rn <Plug>(coc-rename)
 
 augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+      autocmd!
+      " Setup formatexpr specified filetype(s).
+      autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+      " Update signature help on jump placeholder.
+      autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " Applying codeAction to the selected region.
@@ -144,23 +137,23 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Explorer
 let g:coc_explorer_global_presets = {
-      \   'floating': {
-      \      'position': 'floating',
-      \   },
-      \   'floatingLeftside': {
-      \      'position': 'floating',
-      \      'floating-position': 'left-center',
-      \      'floating-width': 30,
-      \   },
-      \   'floatingRightside': {
-      \      'position': 'floating',
-      \      'floating-position': 'right-center',
-      \      'floating-width': 30,
-      \   },
-      \   'simplify': {
-      \     'file.child.template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
-      \   }
-      \ }
+                  \   'floating': {
+                  \      'position': 'floating',
+                  \   },
+                  \   'floatingLeftside': {
+                  \      'position': 'floating',
+                  \      'floating-position': 'left-center',
+                  \      'floating-width': 30,
+                  \   },
+                  \   'floatingRightside': {
+                  \      'position': 'floating',
+                  \      'floating-position': 'right-center',
+                  \      'floating-width': 30,
+                  \   },
+                  \   'simplify': {
+                  \     'file.child.template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
+                  \   }
+                  \ }
 "nmap <silent> <space>e :CocCommand explorer<CR>
 " nnoremap <silent> <leader>e :CocCommand explorer<CR>
 " nmap <space>f :CocCommand explorer --preset floatingRightside<CR>

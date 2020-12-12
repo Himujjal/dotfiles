@@ -42,4 +42,7 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=2
 
+" ------ lox language support -------
+au BufNewFile,BufRead *.lox set syntax=javascript
+
 source $HOME/.config/nvim/settings/mappings.vim

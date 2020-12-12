@@ -7,16 +7,21 @@ Plug 'rust-lang/rust.vim'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'mileszs/ack.vim'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-commentary'
-Plug 'mileszs/ack.vim'
-" Plug 'alaviss/nim.nvim'
-" Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'alaviss/nim.nvim'
+"Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && pnpm i' }
 if has('nvim-0.5') && g:is_linux || g:is_mac
     Plug 'ThePrimeagen/vim-apm'
 endif
+
+" Debugger Plugins
+Plug 'puremourning/vimspector'
+Plug 'szw/vim-maximizer'
 
 " Language Plugins
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -24,7 +29,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'leafgarland/typescript-vim'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'pangloss/vim-javascript'
-Plug 'Chiel92/vim-autoformat'
+" vlang support
+Plug 'ollykel/v-vim'
 
 " if has('nvim-0.5')
 "     Plug 'nvim-treesitter/nvim-treesitter'
@@ -42,8 +48,9 @@ source $HOME/.config/nvim/plugins/nerdtree.vim
 source $HOME/.config/nvim/plugins/fzf.vim
 source $HOME/.config/nvim/plugins/rust.vim
 source $HOME/.config/nvim/plugins/ack.vim
-source $HOME/.config/nvim/plugins/autoformat.vim
 source $HOME/.config/nvim/plugins/markdown.vim
+source $HOME/.config/nvim/plugins/asyncomplete_and_nim.vim
+source $HOME/.config/nvim/plugins/rainbow.vim
 " if has('nvim-0.5')
 "     source $HOME/.config/nvim/plugins/treesitter.vim
 " endif
