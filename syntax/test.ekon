@@ -1,0 +1,22 @@
+`
+// Schema
+import{origSpec}from'./spec.d.ts';
+interface root extends origSpec{}
+export { root } from './spec.d.ts';`
+
+yo: 1,
+"bool": false,
+"there": "is a paradise",
+test: 'next@latest'
+object: {
+   'hey': [
+      +1e+01,
+      true
+      'there \u1001 \x12hello \U00010000testing',
+      'hello',
+      11,
+      {
+         hello: world
+      }
+   ]
+}

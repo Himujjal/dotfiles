@@ -12,16 +12,16 @@ Plug 'preservim/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'ryanoasis/vim-devicons'
 Plug 'alaviss/nim.nvim'
+Plug 'turbio/bracey.vim', {'do': 'npm i --prefix server'} " plugin for live html editing
 "Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'plasticboy/vim-markdown'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && pnpm i' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'pnpm i && cd app && pnpm i' }
 if has('nvim-0.5') && g:is_linux || g:is_mac
     Plug 'ThePrimeagen/vim-apm'
 endif
 
 " Debugger Plugins
 Plug 'puremourning/vimspector'
-Plug 'szw/vim-maximizer'
 
 " Language Plugins
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -30,7 +30,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'pangloss/vim-javascript'
 " vlang support
-Plug 'ollykel/v-vim'
+"Plug 'ollykel/v-vim'
 
 " if has('nvim-0.5')
 "     Plug 'nvim-treesitter/nvim-treesitter'
@@ -48,9 +48,8 @@ source $HOME/.config/nvim/plugins/nerdtree.vim
 source $HOME/.config/nvim/plugins/fzf.vim
 source $HOME/.config/nvim/plugins/rust.vim
 source $HOME/.config/nvim/plugins/ack.vim
-source $HOME/.config/nvim/plugins/markdown.vim
+source $HOME/.config/nvim/plugins/markdownhtmljscss.vim
 source $HOME/.config/nvim/plugins/asyncomplete_and_nim.vim
 source $HOME/.config/nvim/plugins/rainbow.vim
+source $HOME/.config/nvim/plugins/debugger.vim
 " if has('nvim-0.5')
-"     source $HOME/.config/nvim/plugins/treesitter.vim
-" endif

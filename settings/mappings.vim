@@ -6,8 +6,9 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 vnoremap X "_d
 
-" because some reason I heard from Primeagen
-inoremap <C-c> <esc>
+" search for visually selected text 
+vnoremap // y/\V<C-R>=escape(@", '/\')<CR><CR>
+
 
 " Disable the arrow keys
 noremap <Up> <Nop>
@@ -16,7 +17,8 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 
 " Tab navigation like Firefox.
-nnoremap <leader>t :tabprevious<CR>
+nnoremap <silent> <leader>H :tabprevious<CR>
+nnoremap <silent> <leader>L :tabnext<CR>
 nnoremap <C-t>     :tabnew<CR>
 
 " Vim Splits
