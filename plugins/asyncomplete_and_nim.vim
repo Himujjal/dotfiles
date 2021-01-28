@@ -1,6 +1,12 @@
-" Async complete settings
-
-
+" Brackets
+" inoremap { {<CR>}<Esc>ko<Tab><Esc>i
+" inoremap ( ()<Esc>ha
+" inoremap [ []<Esc>ha
+" inoremap < <><Esc>ha
+" inoremap " ""<Esc>ha
+" inoremap ' ''<Esc>ha
+" inoremap ` ``<Esc>ha
+" inoremap ` ``<Esc>ha
 
 " Nim settings
 " au User asyncomplete_setup call asyncomplete#register_source({

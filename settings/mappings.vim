@@ -1,5 +1,7 @@
-nnoremap <silent> <leader>+ :vertical resize +5<CR>
-nnoremap <silent> <leader>- :vertical resize -5<CR>
+nnoremap <silent> = :vertical resize +5<CR>
+nnoremap <silent> - :vertical resize -5<CR>
+nnoremap <silent> + :resize +5<CR>
+nnoremap <silent> _ :resize -5<CR>
 nnoremap <silent> <leader>rp :resize 100<CR>
 
 vnoremap J :m '>+1<CR>gv=gv
@@ -17,8 +19,8 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 
 " Tab navigation like Firefox.
-nnoremap <silent> <leader>H :tabprevious<CR>
-nnoremap <silent> <leader>L :tabnext<CR>
+nnoremap <silent> <leader>h :tabprevious<CR>
+nnoremap <silent> <leader>l :tabnext<CR>
 nnoremap <C-t>     :tabnew<CR>
 
 " Vim Splits

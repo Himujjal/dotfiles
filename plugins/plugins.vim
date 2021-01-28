@@ -19,6 +19,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'pnpm i && cd app && pnpm i' }
 if has('nvim-0.5') && g:is_linux || g:is_mac
     Plug 'ThePrimeagen/vim-apm'
 endif
+Plug 'Raimondi/delimitMate'
 
 " Debugger Plugins
 Plug 'puremourning/vimspector'
@@ -29,6 +30,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'leafgarland/typescript-vim'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'pangloss/vim-javascript'
+Plug 'vim-scripts/ebnf.vim'
 " vlang support
 "Plug 'ollykel/v-vim'
 

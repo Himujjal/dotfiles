@@ -2,7 +2,8 @@
 // Schema
 import{origSpec}from'./spec.d.ts';
 interface root extends origSpec{}
-export { root } from './spec.d.ts';`
+export { root } from './spec.d.ts';
+`
 
 yo: 1,
 "bool": false,
@@ -16,7 +17,7 @@ object: {
       'hello',
       11,
       {
-         hello: world
+         'hello': 'world'
       }
    ]
 }

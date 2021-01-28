@@ -3,6 +3,7 @@
   // autoformat
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
+    "json",
     "javascript",
     "typescript",
     "graphql",
@@ -12,8 +13,7 @@
     "svelte",
     "java",
     "nim",
-    "c",
-    "cpp"
+    "c",  "cpp"
   ],
   "coc.preferences.hoverTarget": "float",
 
@@ -47,7 +47,7 @@
   "python.linting.pylintEnabled": true,
   "python.linting.pylintCategorySeverity.error": "Warning",
   "python.formatting.provider": "black",
-  "python.formatting.blackPath": "~/.local/bin/black",
+  "python.formatting.blackPath": "/usr/local/bin/black",
   "python.jediEnabled": false,
 
   // explorer
@@ -69,5 +69,9 @@
       "command": "nimlsp",
       "filetypes": ["nim", "nims"]
     }
-  }
+  },
+
+
+  // rust
+  "rust-analyzer.serverPath": "~/.local/bin/rust-analyzer"
 }

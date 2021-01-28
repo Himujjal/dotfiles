@@ -19,9 +19,7 @@ syn match ekonColon     /:/
 " Strings
 syn region ekonString start=+\z(["']\)+ skip=+\\z1+ end="\z1" contains=ekonSpecial extend
 
-syn match ekonObjKey          contained /\<\k*\s*:/
 syn match ekonIdentifier      contained /\<\K\k*/ skipwhite skipempty
-syn region ekonObjKeyString   contained start=+\z(["']\)+ skip=+\\\%(\z1\|$\)+ end=+\z1:+ contains=ekonSpecial skipwhite skipempty
 
 syn match ekonSpecial contained "\\["\\/bfnrt]"
 syn match ekonSpecial contained "\(\\u\x\{4}\|\\x\x\{2}\|\\U\x\{8}\)"
@@ -47,9 +45,9 @@ hi def link ekonIdentifier	  Label
 hi def link ekonNumber		  Number
 hi def link ekonFloat		  Float
 hi def link ekonComment		  Comment
-hi def link ekonObjKey        Label 
-hi def link ekonObjKeyString  Label
-" hi def link ekonString		  String
+"hi def link ekonObjKey        Label 
+"hi def link ekonObjKeyString  Label
+hi def link ekonString		  String
 hi def link ekonSpecial		  Special
 hi def link ekonBraces		  Delimiter
 hi def link ekonNoise		  Noise
