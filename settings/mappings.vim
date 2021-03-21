@@ -23,11 +23,11 @@ nnoremap <silent> <leader>h :tabprevious<CR>
 nnoremap <silent> <leader>l :tabnext<CR>
 nnoremap <C-t>     :tabnew<CR>
 
-" Vim Splits
-nnoremap <C-j> <C-W><C-J>
-nnoremap <C-k> <C-W><C-K>
-nnoremap <C-l> <C-W><C-L>
-nnoremap <C-h> <C-W><C-H>
+" Vim Splits navigation
+nnoremap <silent> <C-j> :wincmd j<CR>
+nnoremap <silent> <C-k> :wincmd k<CR>
+nnoremap <silent> <C-l> :wincmd l<CR>
+nnoremap <silent> <C-h> :wincmd h<CR>
 
 " Create new line without leaving normal mode
 nnoremap <leader>j o<Esc>k
@@ -36,7 +36,7 @@ nnoremap <leader>k O<Esc>j
 " nnoremap <silent> zk O<Esc>j
 
 " Clear selection on Enter
-nnoremap <cr> :noh<CR><CR>:<backspace>
+nnoremap <leader><Esc> :noh<CR><CR>:<backspace>
 
 " nnoremap <leader>n :set number!<cr>
 nnoremap <leader>n :set relativenumber!<cr>
@@ -73,6 +73,7 @@ nnoremap <silent> zz :w<CR>
 " --- Split panes to right and below ---
 set splitright
 set splitbelow
+
 " turn terminal to normal mode with escape
 tnoremap <Esc> <C-\><C-n>
 " start terminal in insert mode
@@ -90,5 +91,5 @@ if g:is_win
 endif
 
 " CocShortcuts
-nnoremap <leader>r :CocRestart<cr><cr>
+nnoremap <leader>rr :CocRestart<cr><cr>
 

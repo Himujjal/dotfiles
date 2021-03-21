@@ -1,4 +1,4 @@
-syntax on
+" syntax on
 
 set noerrorbells
 set tabstop=4 softtabstop=4
@@ -29,11 +29,10 @@ let mapleader=" "
 let g:mapleader=" "
 let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 set relativenumber
-" let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-" let base16colorspace=256
-" highlight CursorLineNr cterm=NONE ctermbg=15 ctermfg=8 gui=NONE guibg=#ffffff guifg=#d7000
 
-" For markdown
+" ----- Reload neovim when config changes -----
+" au BufWritePost ~/.config/nvim/*.vim source $HOME/.config/nvim/init.vim
+" au BufWritePost ~/.config/nvim/**/*.vim source $HOME/.config/nvim/init.vim
 
 
 " ------ folding -----
@@ -43,6 +42,13 @@ set nofoldenable
 set foldlevel=2
 
 " ------ lox language support -------
-au BufNewFile,BufRead *.lox set syntax=javascript
+" au BufNewFile,BufRead *.lox set syntax=javascript
+
+" ------ ek language support --------
+" au BufNewFile,BufRead *.svx set syntax=svelte
+au BufNewFile,BufRead *.ek set syntax=typescript
+" au BufNewFile,BufRead *.c.txt set syntax=c
+" au BufNewFile,BufRead *.zzz set syntax=yaml
+" au BufNewFile,BufRead *.wat set syntax=lisp
 
 source $HOME/.config/nvim/settings/mappings.vim

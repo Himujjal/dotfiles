@@ -1,5 +1,7 @@
 # My Dotfiles for Nvim setup
 
+# !! WARNING !! README not updated. Use init.lua and lua stuff
+
 ### Pre-Req:
 
 Install the following before you go on to use these configurations:
@@ -25,6 +27,8 @@ nvim +PlugInstall
 
 # CoC Installation
 nvim +CocInstall
+
+# basic changes
 ```
 
 ### Windows Users:
