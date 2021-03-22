@@ -22,14 +22,16 @@ map("n", "<C-h>", [[<Cmd> wincmd h<CR>]])
 map("n", "<C-j>", [[<Cmd> wincmd j<CR>]])
 
 -- horizontal & vertical resize
-map("n", "=", [[<Cmd> vertical resize +5<CR>]])
-map("n", "-", [[<Cmd> vertical resize -5<CR>]])
+map("n", "<leader>=", [[<Cmd> vertical resize +5<CR>]])
+map("n", "<leader>-", [[<Cmd> vertical resize -5<CR>]])
 map("n", "+", [[<Cmd> resize +5<CR>]])
 map("n", "_", [[<Cmd> resize -5<CR>]])
 
 -- tab navigation
 map("n", "<leader>k", [[<Cmd> BufferLineCycleNext<CR>]])
 map("n", "<leader>j", [[<Cmd> BufferLineCyclePrev<CR>]])
+map("n", "<leader>K", [[<Cmd> BufferLineMoveNext<CR> ]])
+map("n", "<leader>J", [[<Cmd> BufferLineMovePrev<CR> ]])
 
 -- save
 map("n", "zz", [[<Cmd> w<CR>]], { silent = true })

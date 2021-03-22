@@ -15,6 +15,7 @@ vim.g.nvim_tree_git_hl = 1
 vim.g.nvim_tree_root_folder_modifier = ":~"
 vim.g.nvim_tree_tab_open = 1
 vim.g.nvim_tree_allow_resize = 1
+-- vim.g.nvim_tree_disable_keybindings = 1
 
 vim.g.nvim_tree_show_icons = {
     git = 1,
@@ -39,9 +40,10 @@ vim.g.nvim_tree_icons = {
     }
 }
 
-local get_lua_cb = function(cb_name)
+local get_lua_cb = require('nvim-tree.config').nvim_tree_callback
+--[[ local get_lua_cb = function(cb_name)
     return string.format(":lua require'nvim-tree'.on_keypress('%s')<CR>", cb_name)
-end
+end ]]
 
 -- Mappings for nvimtree
 
@@ -55,11 +57,13 @@ vim.api.nvim_set_keymap(
     }
 )
 
+
 vim.g.nvim_tree_bindings = {
     ["<CR>"] = get_lua_cb("edit"),
     ["o"] = get_lua_cb("edit"),
-    ["<2-LeftMouse>"] = get_lua_cb("edit"),
-    -- ["<2-RightMouse>"] = get_lua_cb("cd"),
+    ["<2-LeftMouse>"]  = get_lua_cb("edit"),
+    ["<2-RightMouse>"] = get_lua_cb("cd"),
+    ["<C-]>"] = get_lua_cb("cd"),
     ["s"] = get_lua_cb("vsplit"),
     ["i"] = get_lua_cb("split"),
     ["<C-t>"] = get_lua_cb("tabnew"),
@@ -78,6 +82,6 @@ vim.g.nvim_tree_bindings = {
     ["p"] = get_lua_cb("paste"),
     ["[c"] = get_lua_cb("prev_git_item"),
     ["]c"] = get_lua_cb("next_git_item"),
-    -- ["-"] = get_lua_cb("dir_up"),
+    ["<C-]>"] = get_lua_cb("dir_up"),
     ["q"] = get_lua_cb("close"),
 }
