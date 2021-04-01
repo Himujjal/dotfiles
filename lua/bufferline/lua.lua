@@ -12,7 +12,7 @@ require "bufferline".setup {
         max_prefix_length = 13,
         tab_size = 18,
         enforce_regular_tabs = true,
-        view = "default",
+        view = "multiwindow",
         show_buffer_close_icons = true,
         separator_style = "thin"
     },
@@ -52,3 +52,7 @@ require "bufferline".setup {
         }
     }
 }
+
+vim.api.nvim_set_keymap("n", "<C-w>", "<Cmd>bw<CR>", {
+  silent = true
+})

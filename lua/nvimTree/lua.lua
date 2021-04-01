@@ -33,6 +33,7 @@ vim.g.nvim_tree_icons = {
         renamed = "➜",
         untracked = "★"
     },
+
     folder = {
         default = "",
         open = "",
@@ -40,8 +41,8 @@ vim.g.nvim_tree_icons = {
     }
 }
 
-local get_lua_cb = require('nvim-tree.config').nvim_tree_callback
---[[ local get_lua_cb = function(cb_name)
+local tree_cb = require'nvim-tree.config'.nvim_tree_callback
+--[[ local tree_cb = function(cb_name)
     return string.format(":lua require'nvim-tree'.on_keypress('%s')<CR>", cb_name)
 end ]]
 
@@ -59,29 +60,31 @@ vim.api.nvim_set_keymap(
 
 
 vim.g.nvim_tree_bindings = {
-    ["<CR>"] = get_lua_cb("edit"),
-    ["o"] = get_lua_cb("edit"),
-    ["<2-LeftMouse>"]  = get_lua_cb("edit"),
-    ["<2-RightMouse>"] = get_lua_cb("cd"),
-    ["<C-]>"] = get_lua_cb("cd"),
-    ["s"] = get_lua_cb("vsplit"),
-    ["i"] = get_lua_cb("split"),
-    ["<C-t>"] = get_lua_cb("tabnew"),
-    ["<BS>"] = get_lua_cb("close_node"),
-    ["<S-CR>"] = get_lua_cb("close_node"),
-    ["<Tab>"] = get_lua_cb("preview"),
-    ["I"] = get_lua_cb("toggle_ignored"),
-    ["H"] = get_lua_cb("toggle_dotfiles"),
-    ["R"] = get_lua_cb("refresh"),
-    ["a"] = get_lua_cb("create"),
-    ["d"] = get_lua_cb("remove"),
-    ["r"] = get_lua_cb("rename"),
-    ["<C-r>"] = get_lua_cb("full_rename"),
-    ["x"] = get_lua_cb("cut"),
-    ["y"] = get_lua_cb("copy"),
-    ["p"] = get_lua_cb("paste"),
-    ["[c"] = get_lua_cb("prev_git_item"),
-    ["]c"] = get_lua_cb("next_git_item"),
-    ["<C-]>"] = get_lua_cb("dir_up"),
-    ["q"] = get_lua_cb("close"),
+    ["<CR>"] = tree_cb("edit"),
+    ["o"] = tree_cb("edit"),
+    ["<2-LeftMouse>"]  = tree_cb("edit"),
+    ["<2-RightMouse>"] = tree_cb("cd"),
+    ["<C-]>"] = tree_cb("cd"),
+    -- ["<Esc>"] = tree_cb("toggle_ignored"),
+    ["<esc>"] = tree_cb("close_node"),
+    ["s"] = tree_cb("vsplit"),
+    ["i"] = tree_cb("split"),
+    ["<C-t>"] = tree_cb("tabnew"),
+    ["<BS>"] = tree_cb("close_node"),
+    ["<S-CR>"] = tree_cb("close_node"),
+    ["<Tab>"] = tree_cb("preview"),
+    ["L"] = tree_cb("toggle_ignored"),
+    ["H"] = tree_cb("toggle_dotfiles"),
+    ["R"] = tree_cb("refresh"),
+    ["a"] = tree_cb("create"),
+    ["d"] = tree_cb("remove"),
+    ["r"] = tree_cb("rename"),
+    ["<C-r>"] = tree_cb("full_rename"),
+    ["x"] = tree_cb("cut"),
+    ["y"] = tree_cb("copy"),
+    ["p"] = tree_cb("paste"),
+    ["[c"] = tree_cb("prev_git_item"),
+    ["]c"] = tree_cb("next_git_item"),
+    ["<C-[>"] = tree_cb("dir_up"),
+    ["q"] = tree_cb("close"),
 }

@@ -10,6 +10,9 @@ parser_config.zig = {
   filetype = "zig"
 }
 
+local read_query = function(filename)
+  return table.concat(vim.fn.readfile(vim.fn.expand(filename)), "\n")
+end
 
 ts_config.setup {
     ensure_installed = {

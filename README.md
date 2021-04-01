@@ -33,7 +33,10 @@ nvim +CocInstall
 
 ### Windows Users:
 
+***hello***
+
 Try running the whole thing on nvim-qt or Windows Terminal for a better Vim experience
+
 ```sh
 nvim-qt ..
 ```

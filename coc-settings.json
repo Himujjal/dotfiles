@@ -83,11 +83,11 @@
       "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
       "filetypes": ["haskell", "lhaskell"],
       "initializationOptions": {"languageServerHaskell": { "hlintOn": true }}
-    },
-    "zls": {
-      "command": "~/programs/zig_0.8/zls",
-      "filetypes": ["zig"]
     }
+    //"zls": {
+    //  "command": "~/programs/zig_0.8/zls",
+    //  "filetypes": ["zig"]
+    //}
   },
 
 

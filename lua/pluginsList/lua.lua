@@ -12,9 +12,10 @@ return require("packer").startup(
         use {"akinsho/nvim-bufferline.lua"}
         -- use {"907th/vim-auto-save"}
         use {"nvim-treesitter/nvim-treesitter"}
+        use {'nvim-treesitter/playground'}
         use {"chriskempson/base16-vim"}
         use {"norcalli/nvim-colorizer.lua"}
-        use { 'Yggdroot/indentLine'}
+        use {'Yggdroot/indentLine'}
         use {"ryanoasis/vim-devicons"}
         use {"sbdchd/neoformat"}
         use {"neovim/nvim-lspconfig"}
@@ -27,5 +28,13 @@ return require("packer").startup(
         use {"nvim-telescope/telescope-media-files.nvim"}
         use {"nvim-lua/popup.nvim"}
         use {"b3nj5m1n/kommentary"}
+        use {"zah/nim.vim"}
+      
+        use {"akinsho/nvim-toggleterm.lua"}
+
+        -- use {"ziglang/zig.vim"}
+        -- Plugins can have post-install/update hooks
+        use {'iamcco/markdown-preview.nvim', run = 'cd app && pnpm i', cmd = 'MarkdownPreview'}
     end
 )
+
