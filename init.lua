@@ -1,4 +1,4 @@
-vim.g.runtimepath = "/home/himu/.local/share/nvim/runtime"
+-- vim.g.runtimepath = "/home/himu/.local/share/nvim/runtime"
 -- load plugins
 
 require("pluginsList.lua")
@@ -16,6 +16,7 @@ require("markdown-preview.lua")
 -- lsp
 require("nvim-lspconfig.lua")
 require("nvim-compe.lua")
+require('snips.lua')
 
 
 -- gi
@@ -25,7 +26,7 @@ require "colorizer".setup()
 
 local cmd = vim.cmd
 local g = vim.g
-local indent = 2
+local indent = 4
 
 cmd "colorscheme base16-onedark"
 cmd "syntax enable"
@@ -66,7 +67,9 @@ require("nvim-autopairs").setup()
 require("lspkind").init({ File = " " })
 
 
-vim.cmd("autocmd BufNewFile,BufRead *.zig set filetype=zig")
-vim.cmd("autocmd BufNewFile,BufRead *.ek set syntax=typescript")
-vim.cmd("autocmd BufNewFile,BufRead *.scm set syntax=lisp")
+vim.cmd("autocmd BufReadPre *.zig set filetype=zig")
+vim.cmd("autocmd BufReadPre *.graphql,*.gql,*.graphqls set filetype=graphql")
+vim.cmd("autocmd BufReadPre *.ek set syntax=typescript")
+vim.cmd("autocmd BufReadPre *.fish set syntax=sh")
+vim.cmd("autocmd BufReadPre *.scm set syntax=lisp")
 

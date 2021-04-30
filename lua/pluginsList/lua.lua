@@ -10,7 +10,7 @@ return require("packer").startup(
         use {"lewis6991/gitsigns.nvim"}
         use {"glepnir/galaxyline.nvim"}
         use {"akinsho/nvim-bufferline.lua"}
-        -- use {"907th/vim-auto-save"}
+        use {"norcalli/snippets.nvim"}
         use {"nvim-treesitter/nvim-treesitter"}
         use {'nvim-treesitter/playground'}
         use {"chriskempson/base16-vim"}
@@ -29,10 +29,11 @@ return require("packer").startup(
         use {"nvim-lua/popup.nvim"}
         use {"b3nj5m1n/kommentary"}
         use {"zah/nim.vim"}
+        use { "kdheepak/lazygit.nvim" }
       
         use {"akinsho/nvim-toggleterm.lua"}
 
-        -- use {"ziglang/zig.vim"}
+        use {"ziglang/zig.vim"}
         -- Plugins can have post-install/update hooks
         use {'iamcco/markdown-preview.nvim', run = 'cd app && pnpm i', cmd = 'MarkdownPreview'}
     end

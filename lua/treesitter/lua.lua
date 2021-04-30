@@ -2,13 +2,13 @@ local ts_config = require("nvim-treesitter.configs")
 
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 
-parser_config.zig = {
-  install_info = {
-    url = "/home/himu/my_code/zig/projects/tree-sitter-zig",
-    files = {"src/parser.c"}
-  },
-  filetype = "zig"
-}
+-- parser_config.zig = {
+--   install_info = {
+--     url = "/home/himu/my_code/zig/projects/tree-sitter-zig",
+--     files = {"src/parser.c"}
+--   },
+--   filetype = "zig"
+-- }
 
 local read_query = function(filename)
   return table.concat(vim.fn.readfile(vim.fn.expand(filename)), "\n")
@@ -25,7 +25,7 @@ ts_config.setup {
         "rust",
         "lua",
         "svelte",
-        "zig",
+        -- "zig",
         "c",
         "cpp",
         "json",
@@ -39,6 +39,11 @@ ts_config.setup {
     },
     indent = {
       enable = true
+    },
+    query_linter = {
+      enable = true,
+      use_virtual_text = true,
+      lint_events = { "BufWrite", "CursorHold"}
     }
 }
 

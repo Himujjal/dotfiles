@@ -23,7 +23,7 @@ map("n", "<leader>=", [[<Cmd> resize +5<CR>]])
 map("n", "<leader>-", [[<Cmd> resize -5<CR>]])
 
 -- tab navigation
-map("n", "<leader>k", [[<Cmd> lua BufferLineCycleNext<CR>]])
+map("n", "<leader>k", [[<Cmd> BufferLineCycleNext<CR>]])
 map("n", "<leader>j", [[<Cmd> BufferLineCyclePrev<CR>]])
 map("n", "<leader><S-K>", [[<Cmd> BufferLineMoveNext<CR> ]])
 map("n", "<leader><S-J>", [[<Cmd> BufferLineMovePrev<CR> ]])
@@ -37,7 +37,7 @@ map("n", "<leader><Esc>", [[<Cmd> noh <CR>]], { silent = true })
 -- search for selected item
 --      - select item in visual mode
 --      - press '//' to search for the item
-map('v', "//", [[ y/\V<C-R>=escape(@", '/\')<CR><CR> ]], { silent = true})
+map('v', "/", [[y/\V<C-R>=escape(@",'/\')<CR><CR>]], { silent = true})
 
 
 -- TOGGLE conceallevel
@@ -69,12 +69,11 @@ map("n", "<leader><C-w>", [[ <Cmd>lua toggle_wrap()<CR> ]], {
   noremap = true
 });
 
--- open terminals  
--- insert mode for terminals
--- vim.api.nvim_command([[au BufEnter * if &buftype == 'terminal' | :startinsert | endif]])
+map("n", "<leader>lg", [[ <Cmd>LazyGit<CR>]], { silent = true })
 
--- map("n", "<C-x>" , [[<Cmd> vnew term://$SHELL<CR>]] , opt) -- split term vertically , over the right  
--- map("n", "<C-b>" , [[<Cmd> split term://$SHELL | resize 10 <CR>]] , opt) -- split term vertically , over the right  
-map("t", "<Esc>", [[<C-\><C-n>]]) -- return to normal mode in terminal
+-- return normal mode on esc in terminal
+map("t", "<Esc>", [[<C-\><C-n>]], { silent = true })
 
+-- Restart LSP
+map("n", "<leader>lr", [[:LspRestart<CR>]], { silent = false })
 
