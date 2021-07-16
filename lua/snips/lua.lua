@@ -1,6 +1,25 @@
 -- norcalli/snippets
 require('snippets').use_suggested_mappings()
 
+function ConcatTables(t1,t2)
+  for k,v in pairs(t2) do
+    t1[k] = v  --corrected bug. if t1[#t1+i] is used, indices will be skipped
+  end
+  return t1
+end
+
+local jsTsSnips = {
+  cl = [[console.log($1)]]
+}
+
+local jsSnips = ConcatTables({
+  requireJs = [[require($1);]]
+}, jsTsSnips)
+
+local typescriptSnips = ConcatTables({
+  import = [[import $1 from '$2';]]
+}, jsTsSnips)
+
 require'snippets'.snippets = {
   -- The _global dictionary acts as a global fallback.
   -- If a key is not found for the specific filetype, then
@@ -96,4 +115,33 @@ $0
     --  but use the value in multiple places.
     user_input = [[hey? ${-1=vim.fn.input("what's up? ")} = ${-1}]];
   };
+
+  svelte = {
+    start = [[<script lang="${1:ts}">$2</script>
+<h1>Hello</h1>
+<style lang="postcss"></style>
+    ]];
+    script = [[<script lang="${1:ts}">$2</script>]];
+    style = [[<style lang="${1:postcss}">$2</style>]];
+    div = [[<div></div>]];
+    cl = [[console.log($1)]];
+  },
+  html = {
+    html = [[<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="style.css" />
+    <title>App</title>
+  </head>
+  <body>
+  </body>
+  <script src="main.js"></script>
+</html>]]
+  },
+  typescript = typescriptSnips,
+  typescriptreact = typescriptSnips,
+  javascript = jsSnips,
+  javascriptreact = jsSnips,
 }
+

@@ -10,28 +10,29 @@ return require("packer").startup(
         use {"lewis6991/gitsigns.nvim"}
         use {"glepnir/galaxyline.nvim"}
         use {"akinsho/nvim-bufferline.lua"}
+        use {"akinsho/nvim-toggleterm.lua"}
         use {"norcalli/snippets.nvim"}
         use {"nvim-treesitter/nvim-treesitter"}
-        use {'nvim-treesitter/playground'}
+        -- use {'digitalload/vim-pug'}
+        -- use {'nvim-treesitter/playground'}
         use {"chriskempson/base16-vim"}
         use {"norcalli/nvim-colorizer.lua"}
-        use {'Yggdroot/indentLine'}
-        use {"ryanoasis/vim-devicons"}
+        -- use {'Yggdroot/indentLine'}
+        -- use {"ryanoasis/vim-devicons"}
         use {"sbdchd/neoformat"}
         use {"neovim/nvim-lspconfig"}
         use {"hrsh7th/nvim-compe"}
         use {"windwp/nvim-autopairs"}
         use {"alvan/vim-closetag"}
-        use {"tweekmonster/startuptime.vim"}
+        -- use {"tweekmonster/startuptime.vim"}
         use {"onsails/lspkind-nvim"}
+        use {"nvim-lua/popup.nvim"}
         use {"nvim-telescope/telescope.nvim"}
         use {"nvim-telescope/telescope-media-files.nvim"}
-        use {"nvim-lua/popup.nvim"}
         use {"b3nj5m1n/kommentary"}
         use {"zah/nim.vim"}
         use { "kdheepak/lazygit.nvim" }
       
-        use {"akinsho/nvim-toggleterm.lua"}
 
         use {"ziglang/zig.vim"}
         -- Plugins can have post-install/update hooks

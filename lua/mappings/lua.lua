@@ -22,6 +22,9 @@ map("n", "_", [[<Cmd> vertical resize -5<CR>]])
 map("n", "<leader>=", [[<Cmd> resize +5<CR>]])
 map("n", "<leader>-", [[<Cmd> resize -5<CR>]])
 
+map('n', '<leader>wv', [[<Cmd>vsplit<CR>]])
+map('n', '<leader>wh', [[<Cmd>split<CR>]])
+
 -- tab navigation
 map("n", "<leader>k", [[<Cmd> BufferLineCycleNext<CR>]])
 map("n", "<leader>j", [[<Cmd> BufferLineCyclePrev<CR>]])
@@ -46,9 +49,10 @@ function toggle_conceal()
   if (conceallevel == 2) then 
     vim.api.nvim_win_set_option(0, 'conceallevel', 0)
   else
-    vim.api.nvim_win_set_option(0, 'conceallevel', 2)
+    vim.api.nvim_win_set_option(0, 'conceallevel', 3)
   end
 end
+
 map("n", "<leader><C-l>", [[ <Cmd>lua toggle_conceal()<CR> ]], {
   silent = true,
   noremap = true

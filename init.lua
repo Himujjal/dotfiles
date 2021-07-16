@@ -1,11 +1,10 @@
--- vim.g.runtimepath = "/home/himu/.local/share/nvim/runtime"
 -- load plugins
 
 require("pluginsList.lua")
 require("web-devicons.lua")
 
 require("kommentary.lua")
-
+require("close_tags.lua")
 require("utils.lua")
 require("nvimTree.lua")
 require("bufferline.lua")
@@ -36,8 +35,11 @@ cmd "syntax on"
 cmd "autocmd WinEnter * set nowrap"
 
 g.auto_save = 1
-g.indentLine_char_list = {'▏'}
+-- g.indentLine_char_list = {'▏'}
 g.mapleader = " "
+
+-- Set bash as the default shell
+cmd([[set shell=/bin/bash]])
 
 
 require("treesitter.lua")
@@ -64,12 +66,14 @@ cmd("hi NvimTreeFolderName guifg = #61afef")
 cmd("hi NvimTreeIndentMarker guifg=#545862")
 
 require("nvim-autopairs").setup()
-require("lspkind").init({ File = " " })
+-- require("lspkind").init({ File = " " })
 
 
-vim.cmd("autocmd BufReadPre *.zig set filetype=zig")
-vim.cmd("autocmd BufReadPre *.graphql,*.gql,*.graphqls set filetype=graphql")
-vim.cmd("autocmd BufReadPre *.ek set syntax=typescript")
-vim.cmd("autocmd BufReadPre *.fish set syntax=sh")
-vim.cmd("autocmd BufReadPre *.scm set syntax=lisp")
 
+vim.cmd("autocmd BufRead,BufNewFile *.postcss set filetype=css")
+vim.cmd("autocmd BufRead,BufNewFile *.zig set filetype=zig")
+vim.cmd("autocmd BufRead,BufNewFile *.hbs,*.handlebars set filetype=svelte")
+vim.cmd("autocmd BufRead,BufNewFile *.graphql,*.gql,*.graphqls set filetype=graphql")
+vim.cmd("autocmd BufRead,BufNewFile *.ek set syntax=typescript")
+vim.cmd("autocmd BufRead,BufNewFile *.fish set syntax=bash")
+vim.cmd("autocmd BufRead,BufNewFile *.scm set syntax=lisp")
