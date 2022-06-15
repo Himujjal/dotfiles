@@ -58,6 +58,7 @@ local servers = {
   "pyright",
   "svelte",
   "clangd",
+  "dartls",
   -- "jsonnet_ls",
   "nimls",
   "ocamllsp"

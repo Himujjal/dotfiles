@@ -1,3 +1,3 @@
 return {
-    print = [[std.log.info("{s}\n", .{});]]
+    print = [[std.debug.print("{s}\n", .{});]]
 }
