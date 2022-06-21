@@ -1,113 +1,87 @@
-vim.cmd [[packadd nvim-tree.lua]]
+vim.cmd([[packadd nvim-tree.lua]])
 
-vim.o.termguicolors = true
-
-vim.g.nvim_tree_side = "left"
-vim.g.nvim_tree_width = 24
--- vim.g.nvim_tree_ignore = {'.git', 'node_modules', '.cache'}
--- vim.g.nvim_tree_auto_open = 0
--- vim.g.nvim_tree_auto_close = 0
--- vim.g.nvim_tree_quit_on_open = 0
--- vim.g.nvim_tree_follow = 1
-vim.g.nvim_tree_indent_markers = 1
--- vim.g.nvim_tree_hide_dotfiles = 1
-vim.g.nvim_tree_git_hl = 1
-vim.g.nvim_tree_root_folder_modifier = ":~"
--- vim.g.nvim_tree_tab_open = 1
-vim.g.nvim_tree_allow_resize = 1
--- vim.g.nvim_tree_disable_keybindings = 1
-
-vim.g.nvim_tree_show_icons = {
-  git = 1,
-  folders = 1,
-  files = 1
-}
-
-vim.g.nvim_tree_icons = {
-  default = " ",
-  symlink = " ",
-  git = {
-    unstaged = "✗",
-    staged = "✓",
-    unmerged = "",
-    renamed = "➜",
-    untracked = "★"
-  },
-
-  folder = {
-    default = "",
-    open = "",
-    symlink = ""
-  }
-}
-
-local tree_cb = require'nvim-tree.config'.nvim_tree_callback
---[[ local tree_cb = function(cb_name)
-return string.format(":lua require'nvim-tree'.on_keypress('%s')<CR>", cb_name)
-end ]]
-
--- Mappings for nvimtree
-
-vim.api.nvim_set_keymap(
-  "n",
-  "<C-n>",
-  ":NvimTreeToggle<CR>",
-  {
-    noremap = true,
-    silent = true
-  }
-)
-
+vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeToggle<CR>", {
+	noremap = true,
+	silent = true,
+})
 
 local list = {
-  { key = {"<CR>", "o", "<2-LeftMouse>"}, cb = tree_cb("edit") },
-  { key = {"<2-RightMouse>", "<C-]>"},    cb = tree_cb("cd") },
-  { key = "s",                        cb = tree_cb("vsplit") },
-  { key = "i",                        cb = tree_cb("split") },
-  { key = "<C-t>",                        cb = tree_cb("tabnew") },
-  { key = "<",                            cb = tree_cb("prev_sibling") },
-  { key = ">",                            cb = tree_cb("next_sibling") },
-  { key = "P",                            cb = tree_cb("parent_node") },
-  { key = "<BS>",                         cb = tree_cb("close_node") },
-  { key = "<S-CR>",                       cb = tree_cb("close_node") },
-  { key = "<Tab>",                        cb = tree_cb("preview") },
-  { key = "K",                            cb = tree_cb("first_sibling") },
-  { key = "J",                            cb = tree_cb("last_sibling") },
-  { key = "I",                            cb = tree_cb("toggle_git_ignored") },
-  { key = "H",                            cb = tree_cb("toggle_dotfiles") },
-  { key = "R",                            cb = tree_cb("refresh") },
-  { key = "a",                            cb = tree_cb("create") },
-  { key = "d",                            cb = tree_cb("remove") },
-  { key = "r",                            cb = tree_cb("rename") },
-  { key = "<C-r>",                        cb = tree_cb("full_rename") },
-  { key = "x",                            cb = tree_cb("cut") },
-  { key = "c",                            cb = tree_cb("copy") },
-  { key = "p",                            cb = tree_cb("paste") },
-  { key = "y",                            cb = tree_cb("copy_name") },
-  { key = "Y",                            cb = tree_cb("copy_path") },
-  { key = "gy",                           cb = tree_cb("copy_absolute_path") },
-  { key = "[c",                           cb = tree_cb("prev_git_item") },
-  { key = "]c",                           cb = tree_cb("next_git_item") },
-  { key = "-",                            cb = tree_cb("dir_up") },
-  { key = "q",                            cb = tree_cb("close") },
-  { key = "g?",                           cb = tree_cb("toggle_help") },
+	{ key = { "<CR>", "o", "<2-LeftMouse>" }, action = "edit" },
+	{ key = { "<2-RightMouse>", "<C-]>" }, action = "cd" },
+	{ key = "s", action = "vsplit" },
+	{ key = "i", action = "split" },
+	{ key = "<C-t>", action = "tabnew" },
+	{ key = "<", action = "prev_sibling" },
+	{ key = ">", action = "next_sibling" },
+	{ key = "P", action = "parent_node" },
+	{ key = "<BS>", action = "close_node" },
+	{ key = "<S-CR>", action = "close_node" },
+	{ key = "<Tab>", action = "preview" },
+	{ key = "K", action = "first_sibling" },
+	{ key = "J", action = "last_sibling" },
+	{ key = "I", action = "toggle_git_ignored" },
+	{ key = "H", action = "toggle_dotfiles" },
+	{ key = "R", action = "refresh" },
+	{ key = "a", action = "create" },
+	{ key = "d", action = "remove" },
+	{ key = "r", action = "rename" },
+	{ key = "<C-r>", action = "full_rename" },
+	{ key = "x", action = "cut" },
+	{ key = "c", action = "copy" },
+	{ key = "p", action = "paste" },
+	{ key = "y", action = "copy_name" },
+	{ key = "Y", action = "copy_path" },
+	{ key = "gy", action = "copy_absolute_path" },
+	{ key = "[c", action = "prev_git_item" },
+	{ key = "]c", action = "next_git_item" },
+	{ key = "-", action = "dir_up" },
+	{ key = "q", action = "close" },
+	{ key = "g?", action = "toggle_help" },
 }
 
-require('nvim-tree').setup {
-  view = {
-    width = 24,
-    side = 'left',
-    mappings = {
-      list = list
-    },
-  },
-  filters = {
-    dotfiles = false,
-    custom = {".git", "node_modules", ".cache"}
-  },
-  update_focused_file = {
-    enable = false,
-    ignore_list = {".git", "node_modules", ".cache"}
-  }
-}
+require("nvim-tree").setup({
+	view = {
+		width = 24,
+		side = "left",
+		mappings = {
+			list = list,
+		},
+	},
+	renderer = {
+		highlight_git = true,
+		group_empty = true,
+		full_name = true,
+		highlight_opened_files = "icon",
+		icons = {
+			glyphs = {
+				default = " ",
+				symlink = " ",
+				git = {
+					unstaged = "✗",
+					staged = "✓",
+					unmerged = "",
+					renamed = "➜",
+					untracked = "★",
+				},
 
+				folder = {
+					default = "",
+					open = "",
+					symlink = "",
+				},
+			},
+		},
+	},
+	filters = {
+		dotfiles = false,
+		custom = { ".git", "node_modules", ".cache" },
+	},
+	update_focused_file = {
+		enable = false,
+		ignore_list = { ".git", "node_modules", ".cache" },
+	},
+	filesystem_watchers = {
+		enable = true,
+		interval = 100,
+	},
+})
