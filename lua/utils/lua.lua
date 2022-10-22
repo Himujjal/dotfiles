@@ -23,13 +23,11 @@ opt("o", "updatetime", 250) -- update interval for gitsigns
 opt("o", "clipboard", "unnamedplus")
 
 -- for indentline
-opt("b", "expandtab", true )
+-- opt("b", "expandtab", true )
 
 opt("b", "shiftwidth", 4 )
 opt("b", "tabstop", 4 )
 
-vim.cmd("autocmd BufNewFile,BufRead *.js,*.jsx set shiftwidth=4")
-vim.cmd("autocmd BufNewFile,BufRead *.ts,*.tsx,*.svelte,*.html set shiftwidth=2")
 vim.cmd("autocmd BufWinEnter *.* set number")
 vim.cmd("autocmd BufWinEnter *.* set relativenumber")
 

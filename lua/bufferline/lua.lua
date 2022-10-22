@@ -18,37 +18,37 @@ require "bufferline".setup {
     },
     highlights = {
         background = {
-            guifg = comment_fg,
-            guibg = "#282c34"
+            fg = comment_fg,
+            bg = "#282c34"
         },
         fill = {
-            guifg = comment_fg,
-            guibg = "#282c34"
+            fg = comment_fg,
+            bg = "#282c34"
         },
         buffer_selected = {
-            guifg = normal_fg,
-            guibg = "#3A3E44",
-            gui = "bold"
+            fg = normal_fg,
+            bg = "#3A3E44",
+			bold = true
         },
         separator_visible = {
-            guifg = "#282c34",
-            guibg = "#282c34"
+            fg = "#282c34",
+            bg = "#282c34"
         },
         separator_selected = {
-            guifg = "#282c34",
-            guibg = "#282c34"
+            fg = "#282c34",
+            bg = "#282c34"
         },
         separator = {
-            guifg = "#282c34",
-            guibg = "#282c34"
+            fg = "#282c34",
+            bg = "#282c34"
         },
         indicator_selected = {
-            guifg = "#282c34",
-            guibg = "#282c34"
+            fg = "#282c34",
+            bg = "#282c34"
         },
         modified_selected = {
-            guifg = string_fg,
-            guibg = "#3A3E44"
+            fg = string_fg,
+            bg = "#3A3E44"
         }
     }
 }

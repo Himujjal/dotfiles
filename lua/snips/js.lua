@@ -1,7 +1,7 @@
 return {
-  cl = [[console.log($1)]],
-  import = [[import $1 from '$2';]],
-  reactinit = [[/**
+	cl = [[console.log($1)]],
+	import = [[import $1 from '$2';]],
+	reactinit = [[/**
 * @module
 */
 
@@ -24,5 +24,8 @@ function $1({ hello }) {
 }
 
 export default $1;
-]]
+]],
+	eslintDisable = "// eslint-disable-next-line",
+	typedef = "/** @typedef {} */",
+	type = "/** @type {} */",
 }

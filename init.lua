@@ -11,31 +11,33 @@ require("bufferline.lua")
 require("statusline.lua")
 require("telescope-nvim.lua")
 require("markdown-preview.lua")
-require('nvim-dap.lua')
+require("nvim-dap.lua")
+require("formatter.lua")
 
 -- lsp
 require("nvim-lspconfig.lua")
 require("nvim-compe.lua")
-require('snips.lua')
-
+require("snips.lua")
+require("nvim-lsp-install.lua")
 
 -- gi
 require("gitsigns.lua")
 require("nvim-toggleterm.lua")
-require "colorizer".setup()
+require("colorizer").setup()
+
 
 local cmd = vim.cmd
 local g = vim.g
 local indent = 4
 
-cmd "set nofixendofline"
+cmd("set nofixendofline")
 
-cmd "colorscheme base16-onedark"
-cmd "syntax enable"
-cmd "syntax on"
+cmd("colorscheme base16-onedark")
+cmd("syntax enable")
+cmd("syntax on")
 
 -- no wrap on all windows
-cmd "autocmd WinEnter * set nowrap"
+cmd("autocmd WinEnter * set nowrap")
 
 -- g.auto_save = 1
 -- g.indentLine_char_list = {'▏'}
@@ -43,7 +45,6 @@ g.mapleader = " "
 
 -- Set bash as the default shell
 cmd([[set shell=/bin/bash]])
-
 
 require("treesitter.lua")
 require("mappings.lua")
@@ -68,25 +69,25 @@ cmd("hi NvimTreeFolderIcon guifg = #61afef")
 cmd("hi NvimTreeFolderName guifg = #61afef")
 cmd("hi NvimTreeIndentMarker guifg=#545862")
 
-require("nvim-autopairs").setup{}
+require("nvim-autopairs").setup({})
 -- require("lspkind").init({ File = " " })
 
-
-
-vim.cmd("autocmd BufRead,BufNewFile *.postcss set filetype=css")
-vim.cmd("autocmd BufRead,BufNewFile *.zig set filetype=zig")
-vim.cmd("autocmd BufRead,BufNewFile *.hbs,*.handlebars set filetype=svelte")
-vim.cmd("autocmd BufRead,BufNewFile *.graphql,*.gql,*.graphqls set filetype=graphql")
-vim.cmd("autocmd BufRead,BufNewFile *.ek set syntax=typescript")
-vim.cmd("autocmd BufRead,BufNewFile *.fish set syntax=bash")
-vim.cmd("autocmd BufRead,BufNewFile *.scm set syntax=lisp")
+cmd("autocmd BufRead,BufNewFile *.postcss set filetype=css")
+cmd("autocmd BufRead,BufNewFile *.zig set filetype=zig")
+cmd("autocmd BufRead,BufNewFile *.hbs,*.handlebars set filetype=svelte")
+cmd("autocmd BufRead,BufNewFile *.graphql,*.gql,*.graphqls set filetype=graphql")
+cmd("autocmd BufRead,BufNewFile *.ek set syntax=typescript")
+cmd("autocmd BufRead,BufNewFile *.fish set syntax=bash")
+cmd("autocmd BufRead,BufNewFile *.scm set syntax=lisp")
+cmd("autocmd BufRead,BufNewFile *.wgsl set filetype=wgsl")
+cmd("autocmd BufRead,BufNewFile *.v set filetype=vlang")
 
 -- GUI Settings
 vim.opt.guifont = "FiraCode Nerd Font:h9"
 -- vim.g.neovide_refresh_rate = 140
 -- vim.g.neovide_transparency='0.8'
-vim.api.nvim_set_var('neovide_refresh_rate', 140)
+vim.api.nvim_set_var("neovide_refresh_rate", 140)
 -- vim.api.nvim_set_var("neovide_transparency",  0.8)
-vim.api.nvim_set_var("neovide_cursor_vfx_mode",  'sonicboom')
+vim.api.nvim_set_var("neovide_cursor_vfx_mode", "sonicboom")
 
-vim.cmd("inoremap <silent><expr> <CR> compe#confirm('<CR>')")
+cmd("inoremap <silent><expr> <CR> compe#confirm('<CR>')")

@@ -27,7 +27,7 @@ map("n", "<leader>k", [[<Cmd> BufferLineCycleNext<CR>]])
 map("n", "<leader>j", [[<Cmd> BufferLineCyclePrev<CR>]])
 map("n", "<leader><S-K>", [[<Cmd> BufferLineMoveNext<CR> ]])
 map("n", "<leader><S-J>", [[<Cmd> BufferLineMovePrev<CR> ]])
-map("n", "<leader>bl", [[<Cmd>BufferLinePick<CR>]])
+map("n", "<leader>bp", [[<Cmd>BufferLinePick<CR>]])
 map("n", "<leader>bcr", [[<Cmd>BufferLineCloseRight<CR>]])
 map("n", "<leader>bcl", [[<Cmd>BufferLineCloseLeft<CR>]])
 map("n", "<C-w>", "<Cmd>bwipe<CR>", { silent = true })
@@ -82,3 +82,9 @@ map("t", "<Esc>", [[<C-\><C-n>]], { silent = true })
 -- Restart LSP
 map("n", "<leader>lr", [[:LspRestart<CR>]], { silent = false })
 
+
+-- Formatter
+local opt = {noremap = true, silent = true}
+vim.api.nvim_set_keymap("n", "<leader>ft", [[<Cmd> Format<CR>]], opt)
+-- vim.api.nvim_set_keymap("n", "<leader>Ft", [[<Cmd> FormatWrite<CR>]], opt)
+vim.api.nvim_set_keymap("n", "<leader>Ft", [[<Cmd> Neoformat<CR>]], opt)

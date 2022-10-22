@@ -74,14 +74,14 @@ require("nvim-tree").setup({
 	},
 	filters = {
 		dotfiles = false,
-		custom = { ".git", "node_modules", ".cache" },
+		-- custom = { ".git$", "node_modules", ".cache" },
 	},
 	update_focused_file = {
-		enable = false,
+		enable = true,
 		ignore_list = { ".git", "node_modules", ".cache" },
 	},
-	filesystem_watchers = {
-		enable = true,
-		interval = 100,
-	},
+	-- filesystem_watchers = {
+	-- 	enable = true,
+	-- 	interval = 100,
+	-- },
 })
